@@ -1,0 +1,1 @@
+Planora Pro Technologies is an independent app development studio dedicated to solving one simple problem: everyday clutter. We believe that planning your life shouldn't feel like a chore. Through clean design and innovative frameworks, we create seamless productivity apps that empower you to take control of your schedule, goals, and daily tasks effortlessly.
