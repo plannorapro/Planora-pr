@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planora - Pro Suite</title>
+    <!-- Tailwind via CDN for immediate execution -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind theme to match our aesthetic -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        planora: {
+                            base: '#0f0f13',
+                            card: '#18181b', // zinc-900
+                            cardhover: '#27272a', // zinc-800
+                            accent: '#f5c400', // The classic yellow
+                            accenthover: '#d1a700',
+                            border: '#27272a'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Fallback / Base Overrides */
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+        body { 
+            background-color: #0f0f13; 
+            color: #ffffff;
+            /* Subtly animated background gradient */
+            background-image: radial-gradient(circle at top right, rgba(245, 196, 0, 0.05) 0%, transparent 40%);
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+        /* Custom scrollbar to match the dark theme */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #0f0f13; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+        
+        /* The Bento Layout Utilities */
+        .bento-card {
+            background-color: #18181b; /* bg-zinc-900 */
+            border: 1px solid #27272a; /* border-zinc-800 */
+            border-radius: 1rem; /* rounded-2xl */
+            padding: 1.5rem; /* p-6 */
+            transition: border-color 0.2s, transform 0.2s;
+        }
+        .bento-card:hover { border-color: #3f3f46; }
+        
+        [v-cloak] { display: none; }
+    </style>
+    <!-- Font Awesome (Still needed for icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="antialiased overflow-hidden flex h-screen w-screen selection:bg-planora-accent selection:text-black">
+    <!-- Fixed Sidebar (Left) -->
+    <aside id="sidebar-container" class="w-64 h-full bg-planora-card border-r border-planora-border flex flex-col shrink-0 relative z-20">
+        <!-- Injected by Router -->
+    </aside>
+
+    <!-- Main Content Area (Right) -->
+    <main class="flex-1 h-full flex flex-col overflow-hidden relative">
+        <!-- Header -->
+        <header id="header-container" class="h-20 shrink-0 border-b border-planora-border flex items-center justify-between px-8 bg-[#0f0f13]/80 backdrop-blur-md z-10">
+             <!-- Injected by Router -->
+        </header>
+        
+        <!-- Bento Grid Routing View -->
+        <!-- overflow-y-auto allows vertical scrolling only within the content area, preserving the fixed header/sidebar -->
+        <div id="view-root" class="flex-1 overflow-y-auto p-8">
+            <!-- Injected by Router -->
+        </div>
+    </main>
+
+    <!-- The unified entry point -->
+    <script type="module" src="src/main_v5.js"></script>
+</body>
+</html>
